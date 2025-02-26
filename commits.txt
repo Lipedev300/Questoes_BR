@@ -1,0 +1,5 @@
+commit 02a71ce0d2132426186675977dd650bf9a83f7ef
+Author: Lipedev300 <luizfelipebasso22@gmail.com>
+Date:   Wed Jan 29 18:20:42 2025 -0300
+
+    Adicionado o arquivo index.html, a página inicial do jogo de questões
