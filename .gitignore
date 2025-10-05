@@ -1,0 +1,27 @@
+# ------------------------------------
+# 1. Arquivos de Ambiente Python (BACK-END)
+# ------------------------------------
+# Ignora a pasta venv (o ambiente virtual do Python)
+venv/
+# Ignora arquivos de cache do Python
+__pycache__/
+*.pyc
+
+# ------------------------------------
+# 2. Arquivos de Ambiente Node.js (FRONT-END)
+# ------------------------------------
+# Ignora a pasta de dependências do Node.js
+node_modules/
+# Ignora logs e arquivos de build/cache
+/build
+/dist
+npm-debug.log*
+
+# ------------------------------------
+# 3. Arquivos de Ferramentas/IDE
+# ------------------------------------
+# VS Code
+.vscode/
+
+# IDEs JetBrains
+.idea/
