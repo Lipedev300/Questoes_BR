@@ -1,0 +1,30 @@
+{
+  "name": "questoes-br",
+  "version": "1.0.0",
+  "description": "Este projeto compreende um projeto de quiz para que os jogadores estudem para o ENEM e vestibulares de forma mais divertida",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lipedev300/Questoes_BR.git"
+  },
+  "keywords": [
+    "quiz",
+    "diversão",
+    "estudo",
+    "ENEM"
+  ],
+  "author": "Luiz Felipe de Souza Basso",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lipedev300/Questoes_BR/issues"
+  },
+  "homepage": "https://github.com/Lipedev300/Questoes_BR#readme",
+  "dependencies": {
+    "@prisma/client": "^6.19.0",
+    "express": "^5.1.0",
+    "prisma": "^6.19.0"
+  }
+}

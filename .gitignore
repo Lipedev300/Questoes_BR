@@ -1,21 +1,8 @@
 # ------------------------------------
-# 1. Arquivos de Ambiente Python (BACK-END)
-# ------------------------------------
-# Ignora a pasta venv (o ambiente virtual do Python)
-venv/
-# Ignora arquivos de cache do Python
-__pycache__/
-*.pyc
-*.pyo
 
 #configurações de banco de dados e credenciais
 *.env
 
-#Arquivos do alembic (usado para migrations)
-alembic.bak
-alembic.log
-
-# ------------------------------------
 # 2. Arquivos de Ambiente Node.js (FRONT-END)
 # ------------------------------------
 # Ignora a pasta de dependências do Node.js
