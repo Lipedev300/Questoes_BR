@@ -20,3 +20,6 @@ npm-debug.log*
 
 # IDEs JetBrains
 .idea/
+
+#4 ignora a pasta venv, ambiente python
+venv/
