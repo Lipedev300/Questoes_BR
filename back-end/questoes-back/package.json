@@ -1,0 +1,22 @@
+{
+  "name": "questoes-br",
+  "version": "1.0.0",
+  "description": "Este projeto compreende a criação de um jogo que permitirá à estudantes praticarem o que aprendem sobre conteúdos de ENEM e vestibulares de forma mais divertida e acessível, com feedback de acerto e erro das perguntas, pontuação e vidas durante o jogo",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "quiz",
+    "estudar",
+    "game",
+    "educação"
+  ],
+  "author": "Luiz Felipe de Souza Basso",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "nodemon": "^3.1.11"
+  }
+}
