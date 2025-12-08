@@ -603,4 +603,4 @@ Qual será a medida, em metro, do maior lado do galinheiro?',
         "E": "350"
     }$$,
     'B'
-);
+);SELECT COUNT(*) FROM pergunta;

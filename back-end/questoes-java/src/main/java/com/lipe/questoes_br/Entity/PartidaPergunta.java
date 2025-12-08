@@ -9,7 +9,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Partida_pergunta {
+public class PartidaPergunta {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
@@ -25,11 +25,11 @@ public class Partida_pergunta {
     @Column(columnDefinition= "boolean", nullable= false)
     private boolean respondida_corretamente;
 
-    public Partida_pergunta() {
+    public PartidaPergunta() {
         
     }
 
-    public Partida_pergunta(Partida partida, Pergunta pergunta, boolean respondida_corretamente) {
+    public PartidaPergunta(Partida partida, Pergunta pergunta, boolean respondida_corretamente) {
         this.partida = partida;
         this.pergunta = pergunta;
         this.respondida_corretamente = respondida_corretamente;

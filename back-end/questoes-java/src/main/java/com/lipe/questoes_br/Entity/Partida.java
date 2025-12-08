@@ -10,38 +10,38 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name= "partida")
+@Table(name = "partida")
 public class Partida {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int id_partida;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id_partida;
 
     @ManyToOne
-    @JoinColumn(name= "id_jogador", nullable= false)
+    @JoinColumn(name = "id_jogador", nullable = false)
     private Jogador jogador;
 
-    @Column(columnDefinition= "integer default 0", nullable= false)
+    @Column(columnDefinition = "integer default 0", nullable = false)
     private int pontuacao;
 
-    @Column(columnDefinition= "integer default 3")
+    @Column(columnDefinition = "integer default 3")
     private int vidas;
 
     public Partida() {
-        
+
     }
 
-    public Partida(int id_partida, Jogador jogador, int pontuacao, int vidas) {
+    public Partida(long id_partida, Jogador jogador, int pontuacao, int vidas) {
         this.id_partida = id_partida;
         this.jogador = jogador;
         this.pontuacao = pontuacao;
         this.vidas = vidas;
     }
 
-    public int getId_partida() {
+    public long getId_partida() {
         return id_partida;
     }
 
-    public void setId_partida(int id_partida) {
+    public void setId_partida(long id_partida) {
         this.id_partida = id_partida;
     }
 
