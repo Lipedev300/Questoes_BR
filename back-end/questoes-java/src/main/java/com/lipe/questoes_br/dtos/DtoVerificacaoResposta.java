@@ -1,7 +1,5 @@
 package com.lipe.questoes_br.dtos;
 
-import java.util.Optional;
-
 public class DtoVerificacaoResposta {
     private boolean acertou;
     private String resposta_correta;
