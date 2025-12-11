@@ -6,9 +6,9 @@ public class DtoPartidaResponse {
     private int pontuacao;
     private int vidas;
 
-    public DtoPartidaResponse(DtoVerificacaoResposta dtoResposta, long id, int pontuacao, int vidas) {
-        this.dtoResposta = dtoResposta;
+    public DtoPartidaResponse(long id, DtoVerificacaoResposta dtoResposta, int pontuacao, int vidas) {
         this.id = id;
+        this.dtoResposta = dtoResposta;
         this.pontuacao = pontuacao;
         this.vidas = vidas;
     }
