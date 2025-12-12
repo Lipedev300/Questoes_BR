@@ -9,26 +9,26 @@ import jakarta.persistence.Id;
 @Entity
 public class Pergunta {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
-    @Column(nullable= false, length= 30)
+    @Column(nullable = false, length = 30)
     private String categoria_pergunta;
 
-    @Column(nullable = false, unique = true, columnDefinition= "TEXT")
+    @Column(nullable = false, unique = true, columnDefinition = "TEXT")
     private String texto_pergunta;
 
-    @Column(columnDefinition= "TEXT", nullable= false)
+    @Column(columnDefinition = "TEXT", nullable = false)
     private String alternativas;
 
-    @Column(nullable= false, length=10)
+    @Column(nullable = false, length = 10)
     private String resposta_correta;
 
     public Pergunta() {
-        
+
     }
 
-    public Pergunta(int id, String categoria_pergunta, String texto_pergunta, String alternativas,
+    public Pergunta(long id, String categoria_pergunta, String texto_pergunta, String alternativas,
             String resposta_correta) {
         this.id = id;
         this.categoria_pergunta = categoria_pergunta;
@@ -37,11 +37,11 @@ public class Pergunta {
         this.resposta_correta = resposta_correta;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -75,5 +75,5 @@ public class Pergunta {
 
     public void setResposta_correta(String resposta_correta) {
         this.resposta_correta = resposta_correta;
-    }   
+    }
 }

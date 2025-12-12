@@ -11,22 +11,22 @@ import jakarta.persistence.ManyToOne;
 @Entity
 public class PartidaPergunta {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
     @ManyToOne
-    @JoinColumn(name= "partida_id", nullable= false)
+    @JoinColumn(name = "partida_id", nullable = false)
     private Partida partida;
 
     @ManyToOne
-    @JoinColumn(name= "pergunta_id", nullable= false)
+    @JoinColumn(name = "pergunta_id", nullable = false)
     private Pergunta pergunta;
 
-    @Column(columnDefinition= "boolean", nullable= false)
+    @Column(columnDefinition = "boolean", nullable = false)
     private boolean respondida_corretamente;
 
     public PartidaPergunta() {
-        
+
     }
 
     public PartidaPergunta(Partida partida, Pergunta pergunta, boolean respondida_corretamente) {
@@ -35,21 +35,26 @@ public class PartidaPergunta {
         this.respondida_corretamente = respondida_corretamente;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
-    public void setId(int id) {
+
+    public void setId(long id) {
         this.id = id;
     }
+
     public Partida getPartida() {
         return partida;
     }
+
     public void setPartida(Partida partida) {
         this.partida = partida;
     }
+
     public Pergunta getPergunta() {
         return pergunta;
     }
+
     public void setPergunta(Pergunta pergunta) {
         this.pergunta = pergunta;
     }
@@ -60,6 +65,6 @@ public class PartidaPergunta {
 
     public void setRespondida_corretamente(boolean respondida_corretamente) {
         this.respondida_corretamente = respondida_corretamente;
-    }   
-   
+    }
+
 }

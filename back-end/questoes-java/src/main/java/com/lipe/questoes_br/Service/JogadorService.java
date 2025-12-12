@@ -35,6 +35,9 @@ public class JogadorService {
 
     public List<DtoJogadorResponse> retornarTop10() {
         List<Jogador> listaJogadores = repository.findTop10ByOrderByPontuacaoMaximaDesc();
-        return listaJogadores.stream().map(this::mapeador.entityToDt));
+        List<DtoJogadorResponse> lista_dtos = listaJogadores.stream().map(jogador -> {
+            return this.mapeador.entityToDtoJogador(jogador);
+        }).toList();
+        return lista_dtos;
     }
 }
