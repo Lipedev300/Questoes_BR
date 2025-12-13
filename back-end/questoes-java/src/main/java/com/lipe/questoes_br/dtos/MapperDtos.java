@@ -32,11 +32,11 @@ public class MapperDtos {
         return new DtoJogadorResponse(apelido, pontuacao_maxima);
     }
 
-    public DtoPartidaResponse entityToPartidaDto(Partida partida, DtoVerificacaoResposta resultadoPergunta) {
+    public DtoPartidaJogadaResponse entityToPartidaDto(Partida partida, DtoVerificacaoResposta resultadoPergunta) {
         long id = partida.getId_partida();
         int pontuacao = partida.getPontuacao();
         int vidas = partida.getVidas();
-        return new DtoPartidaResponse(id, resultadoPergunta, pontuacao, vidas);
+        return new DtoPartidaJogadaResponse(id, resultadoPergunta, pontuacao, vidas);
     }
 
     public DtoPergunta entityToPerguntaDto(Pergunta pergunta) {

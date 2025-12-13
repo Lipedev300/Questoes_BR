@@ -20,9 +20,10 @@ public class PerguntaService {
         this.mapperDtos = mapperDtos;
     }
 
-    public DtoVerificacaoResposta verificarResposta(int id_pergunta, String respostaJogador) {
-        Pergunta pergunta = repository.findById(id_pergunta).orElseThrow(
-                () -> new RuntimeException("Pergunta com o id " + id_pergunta + "não encontrada, tente novamente."));
+    public DtoVerificacaoResposta verificarResposta(long id_pergunta, String respostaJogador) {
+        Pergunta pergunta = repository.findById(id_pergunta)
+                .orElseThrow(() -> new RuntimeException(
+                        "Pergunta com o id " + id_pergunta + "não encontrada, tente novamente."));
 
         String respostaCerta = pergunta.getResposta_correta().trim().toLowerCase();
         String respostaCliente = respostaJogador.trim().toLowerCase();

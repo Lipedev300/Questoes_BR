@@ -36,6 +36,12 @@ public class Jogador {
         this.partidas = partidas;
     }
 
+    public Jogador(String apelido) {
+        this.apelido = apelido;
+        this.pontuacao_maxima = 0;
+        this.partidas = new ArrayList<>();
+    }
+
     public long getId() {
         return id;
     }

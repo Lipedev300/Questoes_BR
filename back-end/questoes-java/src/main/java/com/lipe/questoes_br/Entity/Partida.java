@@ -37,6 +37,12 @@ public class Partida {
         this.vidas = vidas;
     }
 
+    public Partida(Jogador jogador) {
+        this.jogador = jogador;
+        this.pontuacao = 0;
+        this.vidas = 3;
+    }
+
     public long getId_partida() {
         return id_partida;
     }

@@ -1,12 +1,12 @@
 package com.lipe.questoes_br.dtos;
 
-public class DtoPartidaResponse {
+public class DtoPartidaJogadaResponse {
     private long id;
     private DtoVerificacaoResposta dtoResposta;
     private int pontuacao;
     private int vidas;
 
-    public DtoPartidaResponse(long id, DtoVerificacaoResposta dtoResposta, int pontuacao, int vidas) {
+    public DtoPartidaJogadaResponse(long id, DtoVerificacaoResposta dtoResposta, int pontuacao, int vidas) {
         this.id = id;
         this.dtoResposta = dtoResposta;
         this.pontuacao = pontuacao;
