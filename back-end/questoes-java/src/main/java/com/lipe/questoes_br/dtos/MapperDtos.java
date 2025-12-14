@@ -33,10 +33,11 @@ public class MapperDtos {
     }
 
     public DtoPartidaJogadaResponse entityToPartidaDto(Partida partida, DtoVerificacaoResposta resultadoPergunta) {
-        long id = partida.getId_partida();
+        long id = partida.getIdPartida();
         int pontuacao = partida.getPontuacao();
         int vidas = partida.getVidas();
-        return new DtoPartidaJogadaResponse(id, resultadoPergunta, pontuacao, vidas);
+        boolean finalizada = partida.isFinalizada();
+        return new DtoPartidaJogadaResponse(id, resultadoPergunta, pontuacao, vidas, finalizada);
     }
 
     public DtoPergunta entityToPerguntaDto(Pergunta pergunta) {
@@ -52,7 +53,7 @@ public class MapperDtos {
             });
         } catch (JsonProcessingException e) {
             System.err.println("Erro ao converter alternativas para objeto");
-            e.printStackTrace();
+            e.getMessage();
             throw new RuntimeException("Erro interno ao descerializar dados de alternativas para a pergunta com id "
                     + id + " tente novamente", e);
         }

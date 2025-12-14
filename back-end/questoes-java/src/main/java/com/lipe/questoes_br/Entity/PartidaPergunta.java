@@ -22,17 +22,17 @@ public class PartidaPergunta {
     @JoinColumn(name = "pergunta_id", nullable = false)
     private Pergunta pergunta;
 
-    @Column(columnDefinition = "boolean", nullable = false)
-    private boolean respondida_corretamente;
+    @Column(columnDefinition = "Boolean", nullable = true)
+    private Boolean respondidaCorretamente;
 
     public PartidaPergunta() {
 
     }
 
-    public PartidaPergunta(Partida partida, Pergunta pergunta, boolean respondida_corretamente) {
+    public PartidaPergunta(Partida partida, Pergunta pergunta, Boolean respondidaCorretamente) {
         this.partida = partida;
         this.pergunta = pergunta;
-        this.respondida_corretamente = respondida_corretamente;
+        this.respondidaCorretamente = respondidaCorretamente;
     }
 
     public long getId() {
@@ -59,12 +59,11 @@ public class PartidaPergunta {
         this.pergunta = pergunta;
     }
 
-    public boolean isRespondida_corretamente() {
-        return respondida_corretamente;
+    public Boolean isRespondidaCorretamente() {
+        return respondidaCorretamente;
     }
 
-    public void setRespondida_corretamente(boolean respondida_corretamente) {
-        this.respondida_corretamente = respondida_corretamente;
+    public void setRespondidaCorretamente(Boolean respondidaCorretamente) {
+        this.respondidaCorretamente = respondidaCorretamente;
     }
-
 }

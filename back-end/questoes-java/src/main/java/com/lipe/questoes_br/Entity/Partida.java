@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 public class Partida {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id_partida;
+    private long idPartida;
 
     @ManyToOne
     @JoinColumn(name = "id_jogador", nullable = false)
@@ -26,15 +26,19 @@ public class Partida {
     @Column(columnDefinition = "integer default 3")
     private int vidas;
 
+    @Column(columnDefinition = "boolean", nullable = false)
+    private boolean finalizada = false;
+
     public Partida() {
 
     }
 
-    public Partida(long id_partida, Jogador jogador, int pontuacao, int vidas) {
-        this.id_partida = id_partida;
+    public Partida(long idPartida, Jogador jogador, int pontuacao, int vidas, boolean finalizada) {
+        this.idPartida = idPartida;
         this.jogador = jogador;
         this.pontuacao = pontuacao;
         this.vidas = vidas;
+        this.finalizada = finalizada;
     }
 
     public Partida(Jogador jogador) {
@@ -43,12 +47,12 @@ public class Partida {
         this.vidas = 3;
     }
 
-    public long getId_partida() {
-        return id_partida;
+    public long getIdPartida() {
+        return idPartida;
     }
 
-    public void setId_partida(long id_partida) {
-        this.id_partida = id_partida;
+    public void setIdPartida(long idPartida) {
+        this.idPartida = idPartida;
     }
 
     public Jogador getJogador() {
@@ -75,4 +79,11 @@ public class Partida {
         this.vidas = vidas;
     }
 
+    public boolean isFinalizada() {
+        return finalizada;
+    }
+
+    public void setFinalizada(boolean finalizada) {
+        this.finalizada = finalizada;
+    }
 }

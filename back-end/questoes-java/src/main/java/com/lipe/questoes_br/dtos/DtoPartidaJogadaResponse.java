@@ -1,24 +1,27 @@
 package com.lipe.questoes_br.dtos;
 
 public class DtoPartidaJogadaResponse {
-    private long id;
+    private long idPergunta;
     private DtoVerificacaoResposta dtoResposta;
     private int pontuacao;
     private int vidas;
+    private boolean finalizada;
 
-    public DtoPartidaJogadaResponse(long id, DtoVerificacaoResposta dtoResposta, int pontuacao, int vidas) {
-        this.id = id;
+    public DtoPartidaJogadaResponse(long idPergunta, DtoVerificacaoResposta dtoResposta, int pontuacao, int vidas,
+            boolean finalizada) {
+        this.idPergunta = idPergunta;
         this.dtoResposta = dtoResposta;
         this.pontuacao = pontuacao;
         this.vidas = vidas;
+        this.finalizada = finalizada;
     }
 
-    public long getId() {
-        return id;
+    public long getIdPergunta() {
+        return idPergunta;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setIdPergunta(long idPergunta) {
+        this.idPergunta = idPergunta;
     }
 
     public DtoVerificacaoResposta getDtoResposta() {
@@ -43,5 +46,13 @@ public class DtoPartidaJogadaResponse {
 
     public void setVidas(int vidas) {
         this.vidas = vidas;
+    }
+
+    public boolean isFinalizada() {
+        return finalizada;
+    }
+
+    public void setFinalizada(boolean finalizada) {
+        this.finalizada = finalizada;
     }
 }

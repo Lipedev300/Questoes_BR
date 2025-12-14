@@ -3,6 +3,7 @@ package com.lipe.questoes_br.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
@@ -17,7 +18,10 @@ import com.lipe.questoes_br.Repository.PartidaRepository;
 import com.lipe.questoes_br.Repository.PerguntaRepository;
 import com.lipe.questoes_br.dtos.DtoPartidaInicioResponse;
 import com.lipe.questoes_br.dtos.DtoPartidaInput;
+import com.lipe.questoes_br.dtos.DtoPartidaJogadaInput;
+import com.lipe.questoes_br.dtos.DtoPartidaJogadaResponse;
 import com.lipe.questoes_br.dtos.DtoPergunta;
+import com.lipe.questoes_br.dtos.DtoVerificacaoResposta;
 
 @Service
 public class PartidaService {
@@ -74,6 +78,59 @@ public class PartidaService {
             perguntasPartida.add(associacao);
         });
         partidaPerguntaRepository.saveAll(perguntasPartida);
-        return new DtoPartidaInicioResponse(partidaSalva.getId_partida(), perguntasColetadas);
+        return new DtoPartidaInicioResponse(partidaSalva.getIdPartida(), perguntasColetadas,
+                partidaSalva.isFinalizada());
+    }
+
+    private void atualizarEstadoPartida(Partida partida, boolean acertou) {
+        if (acertou) {
+            partida.setPontuacao(partida.getPontuacao() + 10);
+        } else {
+            partida.setVidas(partida.getVidas() - 1);
+        }
+        partidaRepository.save(partida);
+    }
+
+    private void verificarFinalJogo(Partida partida) {
+        if (partida.getVidas() <= 0) {
+            partida.setFinalizada(true);
+            partidaRepository.save(partida);
+            return;
+        }
+        long contagemPerguntasNãoRespondidas = partidaPerguntaRepository
+                .countByPartidaIdAndRespondidaCorretamenteIsNull(partida.getIdPartida());
+        if (contagemPerguntasNãoRespondidas == 0) {
+            partida.setFinalizada(true);
+            partidaRepository.save(partida);
+        }
+    }
+
+    public DtoPartidaJogadaResponse responderPergunta(DtoPartidaJogadaInput dto) {
+        Partida partidaAtual = partidaRepository.findById(dto.getIdPartida())
+                .orElseThrow(() -> new NoSuchElementException(
+                        "Partida com o id " + dto.getIdPartida() + " não encontrada, tente de novo"));
+
+        PartidaPergunta associacao = partidaPerguntaRepository
+                .findByPartidaIdAndPerguntaId(dto.getIdPartida(), dto.getIdPergunta())
+                .orElseThrow(() -> new NoSuchElementException(
+                        "essa pergunta não foi encontrada para estar associada a essa partida"));
+
+        if (associacao.isRespondidaCorretamente() != null) {
+            throw new IllegalArgumentException("Essa pergunta já foi respondida nessa partida");
+        }
+
+        DtoVerificacaoResposta dtoVerificacao = perguntaService.verificarResposta(associacao.getPergunta(),
+                dto.getRespostaJogador());
+
+        atualizarEstadoPartida(partidaAtual, dtoVerificacao.isAcertou());
+        associacao.setRespondidaCorretamente(dtoVerificacao.isAcertou());
+        partidaPerguntaRepository.save(associacao);
+        verificarFinalJogo(partidaAtual);
+        return new DtoPartidaJogadaResponse(
+                dto.getIdPergunta(),
+                dtoVerificacao,
+                partidaAtual.getPontuacao(),
+                partidaAtual.getVidas(),
+                partidaAtual.isFinalizada());
     }
 }

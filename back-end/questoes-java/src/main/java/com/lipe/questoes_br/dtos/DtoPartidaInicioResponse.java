@@ -5,10 +5,12 @@ import java.util.List;
 public class DtoPartidaInicioResponse {
     private long idPartida;
     private List<DtoPergunta> listaPerguntas;
+    private boolean finalizada;
 
-    public DtoPartidaInicioResponse(long idPartida, List<DtoPergunta> listaPerguntas) {
+    public DtoPartidaInicioResponse(long idPartida, List<DtoPergunta> listaPerguntas, boolean finalizada) {
         this.idPartida = idPartida;
         this.listaPerguntas = listaPerguntas;
+        this.finalizada = finalizada;
     }
 
     public long getIdPartida() {
@@ -25,5 +27,13 @@ public class DtoPartidaInicioResponse {
 
     public void setListaPerguntas(List<DtoPergunta> listaPerguntas) {
         this.listaPerguntas = listaPerguntas;
+    }
+
+    public boolean isFinalizada() {
+        return finalizada;
+    }
+
+    public void setFinalizada(boolean finalizada) {
+        this.finalizada = finalizada;
     }
 }
