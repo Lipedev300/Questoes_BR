@@ -5,9 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
-
 import org.springframework.stereotype.Service;
-
 import com.lipe.questoes_br.Entity.Jogador;
 import com.lipe.questoes_br.Entity.Partida;
 import com.lipe.questoes_br.Entity.PartidaPergunta;
@@ -93,10 +91,10 @@ public class PartidaService {
 
     private void atualizarPontuacaoJogador(Partida partida, Jogador jogador) {
         int pontuacaoPartida = partida.getPontuacao();
-        int pontuacaoMaximaJogador = jogador.getPontuacao_maxima();
+        int pontuacaoMaximaJogador = jogador.getPontuacaoMaxima();
 
         if (pontuacaoPartida > pontuacaoMaximaJogador) {
-            jogador.setPontuacao_maxima(pontuacaoPartida);
+            jogador.setPontuacaoMaxima(pontuacaoPartida);
             jogadorRepository.save(jogador);
         }
     }

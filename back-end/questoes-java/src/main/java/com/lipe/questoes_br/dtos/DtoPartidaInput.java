@@ -24,5 +24,4 @@ public class DtoPartidaInput {
     public void setQuantidadePerguntas(int quantidadePerguntas) {
         this.quantidadePerguntas = quantidadePerguntas;
     }
-
 }

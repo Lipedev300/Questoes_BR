@@ -20,7 +20,7 @@ public class Jogador {
     private String apelido;
 
     @Column(columnDefinition = "integer default 0", nullable = false)
-    private int pontuacao_maxima;
+    private int pontuacaoMaxima;
 
     @OneToMany(mappedBy = "jogador")
     private List<Partida> partidas = new ArrayList<>();
@@ -29,16 +29,16 @@ public class Jogador {
 
     }
 
-    public Jogador(long id, String apelido, int pontuacao_maxima, List<Partida> partidas) {
+    public Jogador(long id, String apelido, int pontuacaoMaxima, List<Partida> partidas) {
         this.id = id;
         this.apelido = apelido;
-        this.pontuacao_maxima = pontuacao_maxima;
+        this.pontuacaoMaxima = pontuacaoMaxima;
         this.partidas = partidas;
     }
 
     public Jogador(String apelido) {
         this.apelido = apelido;
-        this.pontuacao_maxima = 0;
+        this.pontuacaoMaxima = 0;
         this.partidas = new ArrayList<>();
     }
 
@@ -58,12 +58,12 @@ public class Jogador {
         this.apelido = apelido;
     }
 
-    public int getPontuacao_maxima() {
-        return pontuacao_maxima;
+    public int getPontuacaoMaxima() {
+        return pontuacaoMaxima;
     }
 
-    public void setPontuacao_maxima(int pontuacao_maxima) {
-        this.pontuacao_maxima = pontuacao_maxima;
+    public void setPontuacaoMaxima(int pontuacaoMaxima) {
+        this.pontuacaoMaxima = pontuacaoMaxima;
     }
 
     public List<Partida> getPartidas() {

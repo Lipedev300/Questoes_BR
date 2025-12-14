@@ -27,7 +27,7 @@ public class JogadorService {
         } else {
             Jogador jogador = new Jogador();
             jogador.setApelido(apelido);
-            jogador.setPontuacao_maxima(0);
+            jogador.setPontuacaoMaxima(0);
             repository.save(jogador);
             return jogador;
         }

@@ -28,8 +28,8 @@ public class MapperDtos {
 
     public DtoJogadorResponse entityToDtoJogador(Jogador jogador) {
         String apelido = jogador.getApelido();
-        int pontuacao_maxima = jogador.getPontuacao_maxima();
-        return new DtoJogadorResponse(apelido, pontuacao_maxima);
+        int pontuacaoMaxima = jogador.getPontuacaoMaxima();
+        return new DtoJogadorResponse(apelido, pontuacaoMaxima);
     }
 
     public DtoPartidaJogadaResponse entityToPartidaDto(Partida partida, DtoVerificacaoResposta resultadoPergunta) {

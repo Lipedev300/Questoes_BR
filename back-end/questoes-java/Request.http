@@ -1,0 +1,9 @@
+# post criar jogo
+
+POST http://localhost:8080/quiz/jogos/iniciarjogo
+Content-Type: application/json
+
+{
+    "apelido": "Lipe",
+    "quantidadePrtguntas": 2
+}
