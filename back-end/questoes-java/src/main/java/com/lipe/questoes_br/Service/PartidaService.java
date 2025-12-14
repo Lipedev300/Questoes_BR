@@ -91,17 +91,26 @@ public class PartidaService {
         partidaRepository.save(partida);
     }
 
-    private void verificarFinalJogo(Partida partida) {
-        if (partida.getVidas() <= 0) {
-            partida.setFinalizada(true);
-            partidaRepository.save(partida);
-            return;
+    private void atualizarPontuacaoJogador(Partida partida, Jogador jogador) {
+        int pontuacaoPartida = partida.getPontuacao();
+        int pontuacaoMaximaJogador = jogador.getPontuacao_maxima();
+
+        if (pontuacaoPartida > pontuacaoMaximaJogador) {
+            jogador.setPontuacao_maxima(pontuacaoPartida);
+            jogadorRepository.save(jogador);
         }
-        long contagemPerguntasNãoRespondidas = partidaPerguntaRepository
+    }
+
+    private void verificarFinalJogo(Partida partida) {
+        boolean derrota = partida.getVidas() <= 0;
+        long contagemPerguntasNaoRespondidas = partidaPerguntaRepository
                 .countByPartidaIdAndRespondidaCorretamenteIsNull(partida.getIdPartida());
-        if (contagemPerguntasNãoRespondidas == 0) {
+        boolean vitoria = contagemPerguntasNaoRespondidas == 0;
+
+        if (derrota || vitoria) {
             partida.setFinalizada(true);
             partidaRepository.save(partida);
+            atualizarPontuacaoJogador(partida, partida.getJogador());
         }
     }
 

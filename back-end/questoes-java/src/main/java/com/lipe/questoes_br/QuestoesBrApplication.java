@@ -8,6 +8,7 @@ public class QuestoesBrApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(QuestoesBrApplication.class, args);
+		System.out.println("Daê, aqui é o server! Estou pronto para o trabalho");
 	}
 
 }
