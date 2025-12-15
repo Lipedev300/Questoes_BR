@@ -45,6 +45,7 @@ public class Partida {
         this.jogador = jogador;
         this.pontuacao = 0;
         this.vidas = 3;
+        this.finalizada = false;
     }
 
     public long getIdPartida() {

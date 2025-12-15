@@ -6,11 +6,14 @@ public class DtoPartidaInicioResponse {
     private long idPartida;
     private List<DtoPergunta> listaPerguntas;
     private boolean finalizada;
+    private String apelidoJogador;
 
-    public DtoPartidaInicioResponse(long idPartida, List<DtoPergunta> listaPerguntas, boolean finalizada) {
+    public DtoPartidaInicioResponse(long idPartida, List<DtoPergunta> listaPerguntas, boolean finalizada,
+            String apelidoJogador) {
         this.idPartida = idPartida;
         this.listaPerguntas = listaPerguntas;
         this.finalizada = finalizada;
+        this.apelidoJogador = apelidoJogador;
     }
 
     public long getIdPartida() {
@@ -36,4 +39,13 @@ public class DtoPartidaInicioResponse {
     public void setFinalizada(boolean finalizada) {
         this.finalizada = finalizada;
     }
+
+    public String getApelidoJogador() {
+        return apelidoJogador;
+    }
+
+    public void setApelidoJogador(String apelidoJogador) {
+        this.apelidoJogador = apelidoJogador;
+    }
+
 }

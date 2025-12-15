@@ -77,7 +77,7 @@ public class PartidaService {
         });
         partidaPerguntaRepository.saveAll(perguntasPartida);
         return new DtoPartidaInicioResponse(partidaSalva.getIdPartida(), perguntasColetadas,
-                partidaSalva.isFinalizada());
+                partidaSalva.isFinalizada(), jogador.getApelido());
     }
 
     private void atualizarEstadoPartida(Partida partida, boolean acertou) {
@@ -102,7 +102,7 @@ public class PartidaService {
     private void verificarFinalJogo(Partida partida) {
         boolean derrota = partida.getVidas() <= 0;
         long contagemPerguntasNaoRespondidas = partidaPerguntaRepository
-                .countByPartidaIdAndRespondidaCorretamenteIsNull(partida.getIdPartida());
+                .contarPerguntasNãoRespondidas(partida.getIdPartida());
         boolean vitoria = contagemPerguntasNaoRespondidas == 0;
 
         if (derrota || vitoria) {
@@ -118,7 +118,7 @@ public class PartidaService {
                         "Partida com o id " + dto.getIdPartida() + " não encontrada, tente de novo"));
 
         PartidaPergunta associacao = partidaPerguntaRepository
-                .findByPartidaIdAndPerguntaId(dto.getIdPartida(), dto.getIdPergunta())
+                .buscarPorPartidaEPergunta(dto.getIdPartida(), dto.getIdPergunta())
                 .orElseThrow(() -> new NoSuchElementException(
                         "essa pergunta não foi encontrada para estar associada a essa partida"));
 

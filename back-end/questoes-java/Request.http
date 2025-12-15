@@ -5,5 +5,10 @@ Content-Type: application/json
 
 {
     "apelido": "Lipe",
-    "quantidadePrtguntas": 2
+    "quantidadePerguntas": 2
 }
+
+###
+
+#get para obter o ranking
+GET http://localhost:8080/quiz/jogos/ranking

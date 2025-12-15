@@ -1,29 +1,30 @@
 package com.lipe.questoes_br.dtos;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
-
 import org.springframework.stereotype.Component;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lipe.questoes_br.Entity.Jogador;
 import com.lipe.questoes_br.Entity.Partida;
 import com.lipe.questoes_br.Entity.Pergunta;
-import com.lipe.questoes_br.Service.JogadorService;
 
 @Component
 public class MapperDtos {
-    private final JogadorService service;
     private final ObjectMapper objectMapper;
 
-    public MapperDtos(JogadorService service, ObjectMapper objectMapper) {
-        this.service = service;
+    public MapperDtos(ObjectMapper objectMapper) {
         this.objectMapper = objectMapper;
     }
 
-    public Jogador gamerDtoToEntity(DtoPartidaInput dto) {
-        return service.buscarApelido(dto.getApelido());
+    public DtoPartidaInicioResponse entityTODtoPartida(Partida partida, Jogador jogadorEncontrado) {
+        long id = partida.getIdPartida();
+        List<DtoPergunta> listaPerguntas = new ArrayList<>();
+        boolean finalizada = partida.isFinalizada();
+        String apelidoJogador = jogadorEncontrado.getApelido();
+        return new DtoPartidaInicioResponse(id, listaPerguntas, finalizada, apelidoJogador);
     }
 
     public DtoJogadorResponse entityToDtoJogador(Jogador jogador) {

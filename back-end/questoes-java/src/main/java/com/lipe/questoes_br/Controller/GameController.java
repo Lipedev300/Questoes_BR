@@ -1,24 +1,27 @@
 package com.lipe.questoes_br.Controller;
 
 import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import com.lipe.questoes_br.Service.PartidaService;
-import com.lipe.questoes_br.dtos.DtoPartidaInicioResponse;
-import com.lipe.questoes_br.dtos.DtoPartidaInput;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.lipe.questoes_br.Service.JogadorService;
+import com.lipe.questoes_br.Service.PartidaService;
+import com.lipe.questoes_br.dtos.DtoJogadorResponse;
+import com.lipe.questoes_br.dtos.DtoPartidaInicioResponse;
+import com.lipe.questoes_br.dtos.DtoPartidaInput;
 import com.lipe.questoes_br.dtos.DtoPartidaJogadaInput;
 import com.lipe.questoes_br.dtos.DtoPartidaJogadaResponse;
-import org.springframework.web.bind.annotation.GetMapping;
-import com.lipe.questoes_br.Service.JogadorService;
-import com.lipe.questoes_br.dtos.DtoJogadorResponse;
 
 @RestController
 @RequestMapping("/quiz/jogos")
+
 public class GameController {
     private final PartidaService partidaService;
     private final JogadorService jogadorService;
