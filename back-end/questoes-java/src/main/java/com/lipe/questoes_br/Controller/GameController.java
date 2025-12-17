@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.lipe.questoes_br.Service.JogadorService;
 import com.lipe.questoes_br.Service.PartidaService;
 import com.lipe.questoes_br.dtos.DtoJogadorResponse;
@@ -19,8 +20,7 @@ import com.lipe.questoes_br.dtos.DtoPartidaJogadaInput;
 import com.lipe.questoes_br.dtos.DtoPartidaJogadaResponse;
 
 @RestController
-@RequestMapping("/quiz/jogos")
-
+@RequestMapping("/api")
 public class GameController {
     private final PartidaService partidaService;
     private final JogadorService jogadorService;

@@ -1,6 +1,6 @@
 # post criar jogo
 
-POST http://localhost:8080/quiz/jogos/iniciarjogo
+POST http://localhost:8080/quiz/iniciarjogo
 Content-Type: application/json
 
 {

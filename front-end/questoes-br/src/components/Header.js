@@ -11,6 +11,9 @@ function Header() {
                     <li>
                         <Link to='/apresentacao'> apresentação do jogo</Link>
                     </li>
+                    <li>
+                        <Link to='/ranking'> Ranking</Link>
+                    </li>
                 </ul>
             </nav>
         </div>
