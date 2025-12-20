@@ -9,6 +9,10 @@ public class DtoVerificacaoResposta {
         this.resposta_correta = resposta_correta;
     }
 
+    public DtoVerificacaoResposta() {
+
+    }
+
     public boolean isAcertou() {
         return acertou;
     }

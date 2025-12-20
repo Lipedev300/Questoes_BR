@@ -6,18 +6,15 @@ import org.springframework.stereotype.Service;
 
 import com.lipe.questoes_br.Entity.Pergunta;
 import com.lipe.questoes_br.Repository.PerguntaRepository;
-import com.lipe.questoes_br.dtos.DtoPergunta;
 import com.lipe.questoes_br.dtos.DtoVerificacaoResposta;
 import com.lipe.questoes_br.dtos.MapperDtos;
 
 @Service
 public class PerguntaService {
     private final PerguntaRepository repository;
-    private final MapperDtos mapperDtos;
 
     public PerguntaService(PerguntaRepository repository, MapperDtos mapperDtos) {
         this.repository = repository;
-        this.mapperDtos = mapperDtos;
     }
 
     public DtoVerificacaoResposta verificarResposta(Pergunta pergunta, String respostaJogador) {
@@ -36,11 +33,8 @@ public class PerguntaService {
         return new DtoVerificacaoResposta(acertou, respostaCertaRetornada);
     }
 
-    public List<DtoPergunta> coletarPerguntas(int quantidade) {
+    public List<Pergunta> coletarPerguntas(int quantidade) {
         List<Pergunta> perguntasColetadas = repository.coletarPerguntas(quantidade);
-
-        return perguntasColetadas.stream()
-                .map(mapperDtos::entityToPerguntaDto)
-                .toList();
+        return perguntasColetadas;
     }
 }

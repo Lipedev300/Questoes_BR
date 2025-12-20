@@ -9,6 +9,10 @@ public class DtoJogadorResponse {
         this.pontuacao_maxima = pontuacao_maxima;
     }
 
+    public DtoJogadorResponse() {
+
+    }
+
     public String getApelido() {
         return apelido;
     }

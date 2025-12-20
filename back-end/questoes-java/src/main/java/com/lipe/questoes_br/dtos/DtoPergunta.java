@@ -15,6 +15,10 @@ public class DtoPergunta {
         this.alternativas = alternativas;
     }
 
+    public DtoPergunta() {
+        
+    }
+
     public long getId() {
         return id;
     }

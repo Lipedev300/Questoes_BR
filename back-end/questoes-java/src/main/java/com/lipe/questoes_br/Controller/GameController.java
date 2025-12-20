@@ -20,7 +20,7 @@ import com.lipe.questoes_br.dtos.DtoPartidaJogadaInput;
 import com.lipe.questoes_br.dtos.DtoPartidaJogadaResponse;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/quiz")
 public class GameController {
     private final PartidaService partidaService;
     private final JogadorService jogadorService;
@@ -36,10 +36,12 @@ public class GameController {
         return new ResponseEntity<>(partidaInicio, HttpStatus.CREATED);
     }
 
-    @PostMapping("/{idPartida}/resposta")
+    @PostMapping("/{idPartida}/perguntas/{idPergunta}/resposta")
     public ResponseEntity<DtoPartidaJogadaResponse> responderPergunta(@PathVariable long idPartida,
+            @PathVariable long idPergunta,
             @RequestBody DtoPartidaJogadaInput jogada) {
-        DtoPartidaJogadaResponse feedback = partidaService.responderPergunta(jogada);
+        DtoPartidaJogadaResponse feedback = partidaService.responderPergunta(idPartida, idPergunta,
+                jogada.getRespostaJogador());
         return new ResponseEntity<>(feedback, HttpStatus.OK);
     }
 

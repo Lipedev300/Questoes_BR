@@ -2,10 +2,14 @@ package com.lipe.questoes_br.dtos;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class DtoPartidaInicioResponse {
     private long idPartida;
     private List<DtoPergunta> listaPerguntas;
     private boolean finalizada;
+
+    @JsonProperty("apelido")
     private String apelidoJogador;
 
     public DtoPartidaInicioResponse(long idPartida, List<DtoPergunta> listaPerguntas, boolean finalizada,
@@ -14,6 +18,10 @@ public class DtoPartidaInicioResponse {
         this.listaPerguntas = listaPerguntas;
         this.finalizada = finalizada;
         this.apelidoJogador = apelidoJogador;
+    }
+
+    public DtoPartidaInicioResponse() {
+
     }
 
     public long getIdPartida() {
@@ -47,5 +55,4 @@ public class DtoPartidaInicioResponse {
     public void setApelidoJogador(String apelidoJogador) {
         this.apelidoJogador = apelidoJogador;
     }
-
 }

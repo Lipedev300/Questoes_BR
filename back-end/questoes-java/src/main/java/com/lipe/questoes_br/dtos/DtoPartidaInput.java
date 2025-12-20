@@ -4,6 +4,10 @@ public class DtoPartidaInput {
     private String apelido;
     private int quantidadePerguntas;
 
+    public DtoPartidaInput() {
+
+    }
+
     public DtoPartidaInput(String apelido, int quantidadePerguntas) {
         this.apelido = apelido;
         this.quantidadePerguntas = quantidadePerguntas;

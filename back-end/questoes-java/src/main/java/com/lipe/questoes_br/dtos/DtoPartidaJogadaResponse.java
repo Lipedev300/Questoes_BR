@@ -16,6 +16,10 @@ public class DtoPartidaJogadaResponse {
         this.finalizada = finalizada;
     }
 
+    public DtoPartidaJogadaResponse() {
+
+    }
+
     public long getIdPergunta() {
         return idPergunta;
     }
