@@ -10,5 +10,14 @@ Content-Type: application/json
 
 ###
 
+#POST para responder uma pergunta
+
+POST http://localhost:8080/quiz/6/perguntas/7/resposta
+Content-Type: application/json
+
+{
+    "respostaJogador": "a"
+}
+
 #get para obter o ranking
-GET http://localhost:8080/quiz/jogos/ranking
+GET http://localhost:8080/quiz/ranking

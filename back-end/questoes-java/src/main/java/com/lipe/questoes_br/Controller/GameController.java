@@ -50,9 +50,4 @@ public class GameController {
         List<DtoJogadorResponse> rankingJogadores = jogadorService.retornarTop10();
         return new ResponseEntity<>(rankingJogadores, HttpStatus.OK);
     }
-
-    @GetMapping("/live")
-    public ResponseEntity<String> testeController() {
-        return new ResponseEntity<>("Servidor executado e rodando com sucesso!", HttpStatus.OK);
-    }
 }
