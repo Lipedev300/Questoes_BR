@@ -11,7 +11,7 @@ function ranking({ listaJogadores = [] }) {
                 ) : (
                     <ul>
                         {listaJogadores.map((jogador, index) => {
-                            <li key={index}> jogador</li>
+                            return <li key={index}> {jogador.apelido} - {jogador.pontuacao_maxima} pontos</li>
                         })}
                     </ul>
                 )}

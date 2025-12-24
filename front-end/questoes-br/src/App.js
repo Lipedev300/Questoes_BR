@@ -7,6 +7,7 @@ import ApresentacaoJogo from './components/ApresentacaoJogo';
 import Footer from './components/Footer'
 import CriacaoJogo from './components/CriacaoJogo';
 import Ranking from './components/Ranking';
+import Jogo from './components/Jogo';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path='/apresentacao' element={<ApresentacaoJogo></ApresentacaoJogo>}></Route>
           <Route path='/criacao' element={<CriacaoJogo></CriacaoJogo>}></Route>
           <Route path='/ranking' element={<Ranking></Ranking>}></Route>
+          <Route path='/jogo' element={<Jogo></Jogo>}></Route>
         </Routes>
       </BrowserRouter>
       <Footer></Footer>
