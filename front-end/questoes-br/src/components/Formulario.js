@@ -28,7 +28,7 @@ function Formulario() {
                 quantidadePerguntas: quantidadePerguntas
             }
 
-            const response = await axios.post('http://127.0.0.1:8080/quiz/iniciarjogo', dadosPartida);
+            const response = await axios.post('/quiz/iniciarjogo', dadosPartida);
             console.log("Partida criada!", response.data);
             navigate('/jogo', { state: { partida: response.data } });
         } catch (error) {
